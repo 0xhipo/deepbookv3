@@ -10,6 +10,9 @@
           options:
             - Create Pool
             - Upgrade Protocol
+            - Enable Version
+            - Disable Version
+            - Unregister Pool and Create
         sui_tools_image:
           description: 'image reference of sui_tools'
           default: 'mysten/sui-tools:mainnet'
@@ -22,7 +25,7 @@
           description: 'object id to get gas from for multisig transaction'
           required: true
           type: string
-          default: '0xb76abcaefff13813adfa61768fac06a13a9bdbe7c86fb75118885364452286cb'
+          default: '0x4850650e3566b000ea159a4ae7d13c93803ceabf1f483a7f796c7cc0b2f5ce4b'
 
   jobs:
     deepbook:
@@ -84,6 +87,36 @@
             ORIGIN: gh_action
           run: |
             cd scripts && pnpm install && pnpm ts-node transactions/createPool.ts
+
+        - name: Unregister Pool and Create
+          if: ${{ inputs.transaction_type == 'Unregister Pool and Create' }}
+          env:
+            NODE_ENV: production
+            GAS_OBJECT: ${{ inputs.gas_object_id }}
+            NETWORK: mainnet
+            ORIGIN: gh_action
+          run: |
+            cd scripts && pnpm install && pnpm ts-node transactions/unregisterPoolAndCreate.ts
+
+        - name: Enable Version
+          if: ${{ inputs.transaction_type == 'Enable Version' }}
+          env:
+            NODE_ENV: production
+            GAS_OBJECT: ${{ inputs.gas_object_id }}
+            NETWORK: mainnet
+            ORIGIN: gh_action
+          run: |
+            cd scripts && pnpm install && pnpm ts-node transactions/enableVersion.ts
+
+        - name: Disable Version
+          if: ${{ inputs.transaction_type == 'Disable Version' }}
+          env:
+            NODE_ENV: production
+            GAS_OBJECT: ${{ inputs.gas_object_id }}
+            NETWORK: mainnet
+            ORIGIN: gh_action
+          run: |
+            cd scripts && pnpm install && pnpm ts-node transactions/disableVersion.ts
 
         - name: Show Transaction Data (To sign)
           run: |

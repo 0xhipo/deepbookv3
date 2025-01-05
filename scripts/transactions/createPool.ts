@@ -31,11 +31,11 @@ import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
   const tx = new Transaction();
 
   dbClient.deepBookAdmin.createPoolAdmin({
-    baseCoinKey: "TYPUS",
+    baseCoinKey: "DRF",
     quoteCoinKey: "SUI",
-    tickSize: 0.00001,
-    lotSize: 0.1,
-    minSize: 1,
+    tickSize: 0.000001,
+    lotSize: 1,
+    minSize: 10,
     whitelisted: false,
     stablePool: false,
   })(tx);

@@ -9,7 +9,7 @@ DeepBook V3 is a next generation decentralized central limit order book (CLOB) b
 - [Package and Pools](https://docs.google.com/document/d/1uK4MNqYa0LdhVqBD4KqOcWG1N1nNNe3JwbeUZc1kH1I)
 - [Contract Documentation](https://docs.sui.io/standards/deepbookv3)
 - [SDK Documentation](https://docs.sui.io/standards/deepbookv3-sdk)
-- [Example SDK Usage](https://github.com/MystenLabs/sui/tree/main/sdk/deepbook-v3/examples)
+- [Example SDK Usage](https://github.com/MystenLabs/ts-sdks/tree/main/packages/deepbook-v3/examples)
 - [Whitepaper](https://cdn.prod.website-files.com/65fdccb65290aeb1c597b611/66059b44041261e3fe4a330d_deepbook_whitepaper.pdf)
 
 ## DeepBook Architecture
@@ -41,4 +41,4 @@ DEEP/SUI and DEEP/USDC pools will be launched and whitelisted. Whitelisted pools
 
 ### DEEP Staking & Governance
 
-DEEP tokens can be staked in individual pools, granting the staker access to governance. If the amount of DEEP tokens staked is greater than the pool's stake requried, then that user will be able to reap additional benefits from the pool. These benefits include halved trading fees after reaching a trade volume requirement, as well as maker rebates. During every epoch, staked users can submit proposals to change three parameters: taker fees, maker fees, and stake required. If the proposal passes quorum, 1/2 of all current stake, then its effects will be live from the next epoch and onwards.
+DEEP tokens can be staked in individual pools, granting the staker access to governance. If the amount of DEEP tokens staked is greater than the pool's stake required, then that user will be able to reap additional benefits from the pool. These benefits include halved trading fees after reaching a trade volume requirement, as well as maker rebates. During every epoch, staked users can submit proposals to change three parameters: taker fees, maker fees, and stake required. If the proposal passes quorum, 1/2 of all current stake, then its effects will be live from the next epoch and onwards.
